@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRefereeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_yearOfExperience}" for="yearOfExperience" />
+                    <h:inputText id="yearOfExperience" value="#{refereeController.selected.yearOfExperience}" title="#{bundle.CreateRefereeTitle_yearOfExperience}" />
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{refereeController.selected.description}" title="#{bundle.CreateRefereeTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{refereeController.selected.id}" title="#{bundle.CreateRefereeTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{refereeController.selected.name}" title="#{bundle.CreateRefereeTitle_name}" />
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_country}" for="country" />
+                    <h:inputText id="country" value="#{refereeController.selected.country}" title="#{bundle.CreateRefereeTitle_country}" />
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_gender}" for="gender" />
+                    <h:inputText id="gender" value="#{refereeController.selected.gender}" title="#{bundle.CreateRefereeTitle_gender}" />
+                    <h:outputLabel value="#{bundle.CreateRefereeLabel_age}" for="age" />
+                    <h:inputText id="age" value="#{refereeController.selected.age}" title="#{bundle.CreateRefereeTitle_age}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{refereeController.create}" value="#{bundle.CreateRefereeSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{refereeController.prepareList}" value="#{bundle.CreateRefereeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRefereeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

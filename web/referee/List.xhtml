@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListRefereeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListRefereeEmpty}" rendered="#{refereeController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{refereeController.items.rowCount > 0}">
+                    <h:outputText value="#{refereeController.pagination.pageFirstItem + 1}..#{refereeController.pagination.pageLastItem + 1}/#{refereeController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{refereeController.previous}" value="#{bundle.Previous} #{refereeController.pagination.pageSize}" rendered="#{refereeController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{refereeController.next}" value="#{bundle.Next} #{refereeController.pagination.pageSize}" rendered="#{refereeController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{refereeController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_yearOfExperience}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.yearOfExperience}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_country}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.country}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_gender}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gender}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListRefereeTitle_age}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.age}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{refereeController.prepareView}" value="#{bundle.ListRefereeViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{refereeController.prepareEdit}" value="#{bundle.ListRefereeEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{refereeController.destroy}" value="#{bundle.ListRefereeDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{refereeController.prepareCreate}" value="#{bundle.ListRefereeCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListRefereeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

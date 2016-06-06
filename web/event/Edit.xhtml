@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditEventTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditEventLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{eventController.selected.id}" title="#{bundle.EditEventTitle_id}" />
+                    <h:outputLabel value="#{bundle.EditEventLabel_dateEvent}" for="dateEvent" />
+                    <h:inputText id="dateEvent" value="#{eventController.selected.dateEvent}" title="#{bundle.EditEventTitle_dateEvent}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditEventLabel_place}" for="place" />
+                    <h:inputText id="place" value="#{eventController.selected.place}" title="#{bundle.EditEventTitle_place}" />
+                    <h:outputLabel value="#{bundle.EditEventLabel_amountOfPlaces}" for="amountOfPlaces" />
+                    <h:inputText id="amountOfPlaces" value="#{eventController.selected.amountOfPlaces}" title="#{bundle.EditEventTitle_amountOfPlaces}" />
+                    <h:outputLabel value="#{bundle.EditEventLabel_sport}" for="sport" />
+                    <h:selectOneMenu id="sport" value="#{eventController.selected.sport}" title="#{bundle.EditEventTitle_sport}" >
+                        <f:selectItems value="#{sportController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{eventController.update}" value="#{bundle.EditEventSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditEventViewLink}"/>
+                <br />
+                <h:commandLink action="#{eventController.prepareList}" value="#{bundle.EditEventShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditEventIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

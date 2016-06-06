@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSportTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSportLabel_id}"/>
+                    <h:outputText value="#{sportController.selected.id}" title="#{bundle.ViewSportTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSportLabel_name}"/>
+                    <h:outputText value="#{sportController.selected.name}" title="#{bundle.ViewSportTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewSportLabel_description}"/>
+                    <h:outputText value="#{sportController.selected.description}" title="#{bundle.ViewSportTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewSportLabel_event}"/>
+                    <h:outputText value="#{sportController.selected.event}" title="#{bundle.ViewSportTitle_event}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{sportController.destroyAndView}" value="#{bundle.ViewSportDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSportEditLink}"/>
+                <br />
+                <h:commandLink action="#{sportController.prepareCreate}" value="#{bundle.ViewSportCreateLink}" />
+                <br />
+                <h:commandLink action="#{sportController.prepareList}" value="#{bundle.ViewSportShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSportIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

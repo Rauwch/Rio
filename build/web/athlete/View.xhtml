@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAthleteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAthleteLabel_weight}"/>
+                    <h:outputText value="#{athleteController.selected.weight}" title="#{bundle.ViewAthleteTitle_weight}"/>
+                    <h:outputText value="#{bundle.ViewAthleteLabel_height}"/>
+                    <h:outputText value="#{athleteController.selected.height}" title="#{bundle.ViewAthleteTitle_height}"/>
+                    <h:outputText value="#{bundle.ViewAthleteLabel_id}"/>
+                    <h:outputText value="#{athleteController.selected.id}" title="#{bundle.ViewAthleteTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewAthleteLabel_name}"/>
+                    <h:outputText value="#{athleteController.selected.name}" title="#{bundle.ViewAthleteTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewAthleteLabel_country}"/>
+                    <h:outputText value="#{athleteController.selected.country}" title="#{bundle.ViewAthleteTitle_country}"/>
+                    <h:outputText value="#{bundle.ViewAthleteLabel_gender}"/>
+                    <h:outputText value="#{athleteController.selected.gender}" title="#{bundle.ViewAthleteTitle_gender}"/>
+                    <h:outputText value="#{bundle.ViewAthleteLabel_age}"/>
+                    <h:outputText value="#{athleteController.selected.age}" title="#{bundle.ViewAthleteTitle_age}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{athleteController.destroyAndView}" value="#{bundle.ViewAthleteDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAthleteEditLink}"/>
+                <br />
+                <h:commandLink action="#{athleteController.prepareCreate}" value="#{bundle.ViewAthleteCreateLink}" />
+                <br />
+                <h:commandLink action="#{athleteController.prepareList}" value="#{bundle.ViewAthleteShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAthleteIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

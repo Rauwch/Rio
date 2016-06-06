@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAthleteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAthleteEmpty}" rendered="#{athleteController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{athleteController.items.rowCount > 0}">
+                    <h:outputText value="#{athleteController.pagination.pageFirstItem + 1}..#{athleteController.pagination.pageLastItem + 1}/#{athleteController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{athleteController.previous}" value="#{bundle.Previous} #{athleteController.pagination.pageSize}" rendered="#{athleteController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{athleteController.next}" value="#{bundle.Next} #{athleteController.pagination.pageSize}" rendered="#{athleteController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{athleteController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAthleteTitle_name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.name}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAthleteTitle_country}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.country}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAthleteTitle_gender}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.gender}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAthleteTitle_age}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.age}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAthleteTitle_weight}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.weight}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAthleteTitle_height}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.height}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{athleteController.prepareView}" value="#{bundle.ListAthleteViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{athleteController.prepareEdit}" value="#{bundle.ListAthleteEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{athleteController.destroy}" value="#{bundle.ListAthleteDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{athleteController.prepareCreate}" value="#{bundle.ListAthleteCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAthleteIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
