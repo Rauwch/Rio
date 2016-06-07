@@ -63,7 +63,6 @@ form.jsfcrud_list_form td, td td {
     vertical-align: baseline;
     padding-bottom: 0px;
 }
-
 tr.jsfcrud_odd_row {
     background-color: #fefeff;
     color: #4e6a71;
@@ -74,9 +73,36 @@ tr.jsfcrud_even_row {
     background-color: #eff5fa;
     color: #4e6a71;
 }
-
 #busyImage {
     position: absolute;
     left: 50%;
     top: 50%;
 }
+
+.ui-steps .ui-steps-item {
+    width: 24%;
+}
+ 
+.ui-state-highlight {
+    text-shadow: none !important;
+}
+ 
+.ui-steps.custom {
+    margin-bottom: 30px;
+}
+ 
+.ui-steps.custom .ui-steps-item .ui-menuitem-link {
+    height: 10px;
+    padding: 0 1em;
+}
+ 
+.ui-steps.custom .ui-steps-item .ui-steps-number {
+    background-color: #0081c2;
+    color: #FFFFFF;
+    display: inline-block;
+    width: 30px;
+    border-radius: 10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+

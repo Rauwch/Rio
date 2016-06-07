@@ -37,6 +37,8 @@ public abstract class Person implements Serializable {
     private int age;
     @ManyToMany(mappedBy = "personsPractisingSport")
     private List<Sport> practisesTheseSports;
+    
+    
     public Person() {
 
     }
