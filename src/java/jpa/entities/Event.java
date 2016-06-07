@@ -19,12 +19,14 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Anton
  */
 @Entity
+@XmlRootElement
 public class Event implements Serializable {
 
     @Id

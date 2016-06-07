@@ -8,8 +8,11 @@ package jpa.entities;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
+@XmlRootElement
 public class Athlete extends Person {
 
 
@@ -43,6 +46,7 @@ public class Athlete extends Person {
         this.height = height;
     }
 
+    @XmlTransient
     public List<Price> getPrices() {
         return prices;
     }

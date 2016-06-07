@@ -17,6 +17,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 
 /**
@@ -24,6 +26,7 @@ import javax.validation.constraints.Size;
  * @author Anton
  */
 @Entity
+@XmlRootElement
 public class Sport implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -71,6 +74,7 @@ public class Sport implements Serializable {
         this.description = description;
     } 
 
+    @XmlTransient
     public List<Person> getPersonsPractisingSport() {
         return personsPractisingSport;
     }
