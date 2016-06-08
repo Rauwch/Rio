@@ -1,4 +1,4 @@
-root { 
+/*root { 
     display: block;
 }
 
@@ -105,4 +105,8 @@ tr.jsfcrud_even_row {
     margin-top: -10px;
     margin-bottom: 10px;
 }
+.labels{
+    font-weight: bold;
+    font-size: 50px;
+}*/
 

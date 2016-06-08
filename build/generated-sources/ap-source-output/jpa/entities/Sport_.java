@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import jpa.entities.Event;
 import jpa.entities.Person;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-06-06T20:53:33")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-06-08T14:26:26")
 @StaticMetamodel(Sport.class)
 public class Sport_ { 
 

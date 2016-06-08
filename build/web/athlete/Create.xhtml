@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -14,6 +15,10 @@
             </h:panelGroup>
             <h:form>
                 <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAthleteLabel_weight}" for="weight" />
+                    <h:inputText id="weight" value="#{athleteController.selected.weight}" title="#{bundle.CreateAthleteTitle_weight}" />
+                    <h:outputLabel value="#{bundle.CreateAthleteLabel_height}" for="height" />
+                    <h:inputText id="height" value="#{athleteController.selected.height}" title="#{bundle.CreateAthleteTitle_height}" />
                     <h:outputLabel value="#{bundle.CreateAthleteLabel_id}" for="id" />
                     <h:inputText id="id" value="#{athleteController.selected.id}" title="#{bundle.CreateAthleteTitle_id}" />
                     <h:outputLabel value="#{bundle.CreateAthleteLabel_name}" for="name" />
@@ -24,10 +29,6 @@
                     <h:inputText id="gender" value="#{athleteController.selected.gender}" title="#{bundle.CreateAthleteTitle_gender}" />
                     <h:outputLabel value="#{bundle.CreateAthleteLabel_age}" for="age" />
                     <h:inputText id="age" value="#{athleteController.selected.age}" title="#{bundle.CreateAthleteTitle_age}" />
-                    <h:outputLabel value="#{bundle.CreateAthleteLabel_weight}" for="weight" />
-                    <h:inputText id="weight" value="#{athleteController.selected.weight}" title="#{bundle.CreateAthleteTitle_weight}" />
-                    <h:outputLabel value="#{bundle.CreateAthleteLabel_height}" for="height" />
-                    <h:inputText id="height" value="#{athleteController.selected.height}" title="#{bundle.CreateAthleteTitle_height}" />
                 </h:panelGrid>
                 <br />
                 <h:commandLink action="#{athleteController.create}" value="#{bundle.CreateAthleteSaveLink}" />

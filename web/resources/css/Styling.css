@@ -1,0 +1,34 @@
+.labels{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.athlete{
+    font-size: 30px;
+}
+
+.largText{
+    font-size: 30px;
+}
+
+
+/*.ui-widget-content{
+    border: none;
+}
+.allBorder{
+    border: 1px;
+}*/
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+    background: #fff;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-bottom: 10px;
+}
+
+.center{
+    margin: auto;
+    width: 40%;  
+    padding: 10px;
+}

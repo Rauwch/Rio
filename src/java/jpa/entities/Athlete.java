@@ -15,7 +15,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 public class Athlete extends Person {
 
-
     double weight;
     double height;
     @OneToMany(mappedBy = "athlete")
@@ -29,7 +28,6 @@ public class Athlete extends Person {
         this.height = height;
         this.weight = weight;
     }
-
     public double getWeight() {
         return weight;
     }

@@ -16,7 +16,7 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditEventLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{eventController.selected.id}" title="#{bundle.EditEventTitle_id}" />
+                    <h:inputText id="id" value="#{eventController.selected.id}" title="#{bundle.EditEventTitle_id}" required="true" requiredMessage="#{bundle.EditEventRequiredMessage_id}"/>
                     <h:outputLabel value="#{bundle.EditEventLabel_dateEvent}" for="dateEvent" />
                     <h:inputText id="dateEvent" value="#{eventController.selected.dateEvent}" title="#{bundle.EditEventTitle_dateEvent}" >
                         <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
