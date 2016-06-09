@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import jpa.entities.Athlete;
 import jpa.entities.Medal;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-06-08T14:26:26")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-06-08T17:40:45")
 @StaticMetamodel(Price.class)
 public class Price_ { 
 

@@ -37,8 +37,7 @@ public abstract class Person implements Serializable {
     private int age;
     @ManyToMany(mappedBy = "personsPractisingSport")
     private List<Sport> practisesTheseSports;
-    
-    
+       
     public Person() {
 
     }
@@ -97,8 +96,7 @@ public abstract class Person implements Serializable {
     public void setPractisesTheseSports(List<Sport> practisesTheseSports) {
         this.practisesTheseSports = practisesTheseSports;
     }
-    
-    
+
     @Override
     public int hashCode() {
         int hash = 0;

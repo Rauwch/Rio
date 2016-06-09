@@ -7,6 +7,7 @@ import jpa.session.EventFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -19,6 +20,7 @@ import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
 @Named("eventController")
+@ManagedBean
 @SessionScoped
 public class EventController implements Serializable {
 
@@ -82,7 +84,9 @@ public class EventController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("EventCreated"));
+            recreateModel();
+            //JsfUtil.addSuccessMessage("Event Created");
+
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));

@@ -4,9 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/athlete/List.xhtml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/event/List.xhtml</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jsf/AthleteController.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jsf/SportController.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/sport/Create.xhtml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/sport/List.xhtml</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/resources/css/Styling.css</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/event/Create.xhtml</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/athlete/Create.xhtml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jsf/EventController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -18,14 +18,15 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+
 @Named("refereeController")
 @SessionScoped
 public class RefereeController implements Serializable {
 
+
     private Referee current;
     private DataModel items = null;
-    @EJB
-    private jpa.session.RefereeFacade ejbFacade;
+    @EJB private jpa.session.RefereeFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -43,7 +44,6 @@ public class RefereeController implements Serializable {
     private RefereeFacade getFacade() {
         return ejbFacade;
     }
-
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
@@ -55,7 +55,7 @@ public class RefereeController implements Serializable {
 
                 @Override
                 public DataModel createPageDataModel() {
-                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
                 }
             };
         }
@@ -68,7 +68,7 @@ public class RefereeController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Referee) getItems().getRowData();
+        current = (Referee)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
@@ -91,7 +91,7 @@ public class RefereeController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Referee) getItems().getRowData();
+        current = (Referee)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -108,7 +108,7 @@ public class RefereeController implements Serializable {
     }
 
     public String destroy() {
-        current = (Referee) getItems().getRowData();
+        current = (Referee)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -142,14 +142,14 @@ public class RefereeController implements Serializable {
         int count = getFacade().count();
         if (selectedItemIndex >= count) {
             // selected index cannot be bigger than number of items:
-            selectedItemIndex = count - 1;
+            selectedItemIndex = count-1;
             // go to previous page if last page disappeared:
             if (pagination.getPageFirstItem() >= count) {
                 pagination.previousPage();
             }
         }
         if (selectedItemIndex >= 0) {
-            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
+            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex+1}).get(0);
         }
     }
 
@@ -192,7 +192,7 @@ public class RefereeController implements Serializable {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Referee.class)
+    @FacesConverter(forClass=Referee.class)
     public static class RefereeControllerConverter implements Converter {
 
         @Override
@@ -200,7 +200,7 @@ public class RefereeController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            RefereeController controller = (RefereeController) facesContext.getApplication().getELResolver().
+            RefereeController controller = (RefereeController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "refereeController");
             return controller.getReferee(getKey(value));
         }
@@ -226,7 +226,7 @@ public class RefereeController implements Serializable {
                 Referee o = (Referee) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Referee.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+Referee.class.getName());
             }
         }
 

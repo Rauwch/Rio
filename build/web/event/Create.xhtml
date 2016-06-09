@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -16,22 +17,20 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.CreateEventLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{eventController.selected.id}" title="#{bundle.CreateEventTitle_id}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_id}"/>
+                    <p:inputText id="id" value="#{eventController.selected.id}" title="#{bundle.CreateEventTitle_id}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_id}"/>
                     <h:outputLabel value="#{bundle.CreateEventLabel_dateEvent}" for="dateEvent" />
-                    <h:inputText id="dateEvent" value="#{eventController.selected.dateEvent}" title="#{bundle.CreateEventTitle_dateEvent}" >
-                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
-                    </h:inputText>
+                    <p:calendar id="datetime" value="#{eventController.selected.dateEvent}" pattern="MM/dd/yyyy HH:mm:ss" />
                     <h:outputLabel value="#{bundle.CreateEventLabel_place}" for="place" />
-                    <h:inputText id="place" value="#{eventController.selected.place}" title="#{bundle.CreateEventTitle_place}" />
+                    <p:inputText id="place" value="#{eventController.selected.place}" title="#{bundle.CreateEventTitle_place}" />
                     <h:outputLabel value="#{bundle.CreateEventLabel_amountOfPlaces}" for="amountOfPlaces" />
-                    <h:inputText id="amountOfPlaces" value="#{eventController.selected.amountOfPlaces}" title="#{bundle.CreateEventTitle_amountOfPlaces}" />
+                    <p:inputText id="amountOfPlaces" value="#{eventController.selected.amountOfPlaces}" title="#{bundle.CreateEventTitle_amountOfPlaces}" />
                     <h:outputLabel value="#{bundle.CreateEventLabel_sport}" for="sport" />
-                    <h:selectOneMenu id="sport" value="#{eventController.selected.sport}" title="#{bundle.CreateEventTitle_sport}" >
+                    <p:selectOneMenu id="sport" value="#{eventController.selected.sport}" title="#{bundle.CreateEventTitle_sport}" >
                         <f:selectItems value="#{sportController.itemsAvailableSelectOne}"/>
-                    </h:selectOneMenu>
+                    </p:selectOneMenu>
                 </h:panelGrid>
                 <br />
-                <h:commandLink action="#{eventController.create}" value="#{bundle.CreateEventSaveLink}" />
+                <p:commandLink action="#{eventController.create}" value="#{bundle.CreateEventSaveLink}" update="@(.eventList)"/>
                 <br />
                 <br />
                 <h:commandLink action="#{eventController.prepareList}" value="#{bundle.CreateEventShowAllLink}" immediate="true"/>
