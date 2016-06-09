@@ -105,5 +105,6 @@ public class ClientServlet extends HttpServlet {
         net.webservicex.CountrySoap port = service.getCountrySoap();
         return port.getCurrencyByCountry(countryName);
     }
+    
 
 }

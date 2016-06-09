@@ -3,60 +3,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:head>
     </h:head>
-    <h:body> 
-        <b:navBar brand="Road to Rio" brandHref="/Rio" inverse="true" fixed="true">
-            <b:navbarLinks>
-                <b:dropMenu value="Athletes">
-                    <b:navLink value="All Athletes" outcome="/athlete/List"></b:navLink>
-                    <b:navLink value="Create new Athlete" outcome="/athlete/Create"></b:navLink>
-                </b:dropMenu>
-                <b:navLink value="Sports" outcome="/sport/List"></b:navLink>            
-                <b:navLink value="Refs" outcome="/referee/List"></b:navLink>
-                <b:navLink value="Events" outcome="/event/List"></b:navLink>
-                <b:navLink value="Shopping cart #{shoppingCart.numberOfEvents}" outcome="/cart/eventCart" icon="glyphicon glyphicon-shopping-cart" ></b:navLink>
-            </b:navbarLinks>
-        </b:navBar> 
-        <br />
-        <h:link outcome="/athlete/List" value="Show All Athlete Items"/>
-        <br />
-        <h:link outcome="/athlete/List" value="Show All Athlete Items"/>
-        <br />
-        <h:link outcome="/event/List" value="Show All Event Items"/>
-        <br />
-        <h:link outcome="/price/List" value="Show All Price Items"/>
-        <br />
-        <h:link outcome="/referee/List" value="Show All Referee Items"/>
-        <br />
-        <h:link outcome="/sport/List" value="Show All Sport Items"/>
-        <br />
-        <h:link outcome="/athlete/List" value="Show All Athlete Items"/>
-        <br />
-        <h:link outcome="/referee/List" value="Show All Referee Items"/>
-        <br />
-        <h:link outcome="/athlete/List" value="Show All Athlete Items"/>
-        <br />
-        <h:link outcome="/referee/List" value="Show All Referee Items"/>
-        <br />
-        <h:link outcome="/athlete/List" value="Show All Athlete Items"/>
-        <br />
-        <h:link outcome="/referee/List" value="Show All Referee Items"/>
-    </h:body>
+    <ui:composition template="/template.xhtml"> 
+        <ui:define name="title">
 
+        </ui:define>
+        <ui:define name="body">
 
+        </ui:define>
 
-
-
-
-
-
-
-
-
+    </ui:composition>
 
 </html>
 

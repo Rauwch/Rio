@@ -29,11 +29,9 @@ public class ShoppingCartEJB {
     // "Insert Code > Add Business Method")
 
     public void addEvent(Event event) {
-        System.out.println("Event added to cart " + cartItems.size());
         if (!cartItems.contains(event)) {
             cartItems.add(event);
         }
-        System.out.println("Event added to cart " + cartItems.size());
     }
 
     public void removeEvent(Event event) {
@@ -44,10 +42,8 @@ public class ShoppingCartEJB {
 
     public Integer getNumberOfEvents() {
         if (cartItems.isEmpty()) {
-            System.out.println("amount of events " + cartItems.size());
             return 0;
-        } else {
-            System.out.println("amount of events" + cartItems.size());
+        } else {     
             return cartItems.size();
         }
     }
@@ -61,11 +57,12 @@ public class ShoppingCartEJB {
         cartItems.clear();
     }
 
-    public void checkout() {
+    public String checkout() {
         cartItems.stream().forEach((Event event) -> {
             event.takeSeat();
         });
         cartItems.clear();
+        return "/index";
     }
 
 }

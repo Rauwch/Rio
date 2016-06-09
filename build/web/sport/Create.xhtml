@@ -27,7 +27,7 @@
                     <p:selectOneMenu id="event" value="#{sportController.selected.event}" title="Event" >
                         <f:selectItems value="#{eventController.itemsAvailableSelectOne}"/>
                     </p:selectOneMenu>
-                    <p:commandButton action="#{sportController.create}" value="Save" update="@(sportList)"/>
+                    <h:commandButton action="#{sportController.create}" value="Save" />
                 </h:panelGrid>
             </h:form>
         </ui:define>

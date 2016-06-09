@@ -17,11 +17,11 @@
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListAthleteEmpty}" rendered="#{athleteController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{athleteController.items.rowCount > 0}">         
-                    <p:dataList value="#{athleteController.items}" var="item" style="border:solid 1px" styleClass="athleteList">
-                        <p:layout style="min-width:400px;min-height:200px;">
-                            <p:layoutUnit position="west" resizable="true" size="200" minSize="40" maxSize="200">
-                                
+                <h:panelGroup rendered="#{athleteController.items.rowCount > 0}">
+                    <ui:repeat value="#{athleteController.items}" var="item"  >
+                        <p:layout style="min-width:400px;min-height:200px;margin: 20px">
+                            <p:layoutUnit position="west" size="200" minSize="40" maxSize="200">
+
                             </p:layoutUnit>
 
                             <p:layoutUnit position="center">
@@ -55,7 +55,7 @@
                                 </div>
                             </p:layoutUnit>
                         </p:layout>
-                    </p:dataList>
+                    </ui:repeat>                   
                 </h:panelGroup>     
             </h:form>
         </ui:define>

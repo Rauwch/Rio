@@ -78,7 +78,7 @@ public class AthleteController implements Serializable {
     public String prepareCreate() {
         current = new Athlete();
         selectedItemIndex = -1;
-        return "Create";
+        return "List";
     }
 
     public String create() {

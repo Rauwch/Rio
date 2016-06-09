@@ -82,6 +82,7 @@ public class RefereeController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
+            recreateModel();
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("RefereeCreated"));
             return prepareCreate();
         } catch (Exception e) {
@@ -99,6 +100,7 @@ public class RefereeController implements Serializable {
     public String update() {
         try {
             getFacade().edit(current);
+            recreateModel();
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("RefereeUpdated"));
             return "View";
         } catch (Exception e) {
@@ -132,6 +134,7 @@ public class RefereeController implements Serializable {
     private void performDestroy() {
         try {
             getFacade().remove(current);
+            recreateModel();
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("RefereeDeleted"));
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/resources/Bundle").getString("PersistenceErrorOccured"));

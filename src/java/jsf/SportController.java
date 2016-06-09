@@ -84,6 +84,7 @@ public class SportController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
+            recreateModel();
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("SportCreated"));
             return prepareCreate();
         } catch (Exception e) {

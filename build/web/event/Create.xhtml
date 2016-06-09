@@ -19,7 +19,7 @@
                     <h:outputLabel value="#{bundle.CreateEventLabel_id}" for="id" />
                     <p:inputText id="id" value="#{eventController.selected.id}" title="#{bundle.CreateEventTitle_id}" required="true" requiredMessage="#{bundle.CreateEventRequiredMessage_id}"/>
                     <h:outputLabel value="#{bundle.CreateEventLabel_dateEvent}" for="dateEvent" />
-                    <p:calendar id="datetime" value="#{eventController.selected.dateEvent}" pattern="MM/dd/yyyy HH:mm:ss" />
+                    <p:calendar id="datetime" value="#{eventController.selected.dateEvent}" pattern="MM/dd/yyyy HH:mm" />
                     <h:outputLabel value="#{bundle.CreateEventLabel_place}" for="place" />
                     <p:inputText id="place" value="#{eventController.selected.place}" title="#{bundle.CreateEventTitle_place}" />
                     <h:outputLabel value="#{bundle.CreateEventLabel_amountOfPlaces}" for="amountOfPlaces" />

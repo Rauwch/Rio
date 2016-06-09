@@ -18,22 +18,23 @@
                 </h:panelGroup>
                 <h:outputText escape="false" value="#{bundle.ListSportEmpty}" rendered="#{sportController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{sportController.items.rowCount > 0}">       
-                    <p:dataList value="#{sportController.items}" var="item" style="border:solid 1px" styleClass="sportList">
-                        <div class="ui-g">
-                            <div class="ui-g-3">
-                                <h:outputText value="#{item.name}" class="largText"/> 
-                                <h:outputText value="#{item.event}" class="largText"/>
+                    <ui:repeat value="#{sportController.items}" var="item" >
+                        <p:panel style="margin: 20px">
+                            <div class="ui-g">
+                                <div class="ui-g-3">
+                                    <h:outputText value="#{item.name}" class="largText"/> 
+                                    <h:outputText value="#{item.event}" class="largText"/>
+                                </div>
+                                <div class="ui-g-9">
+                                    <h:outputText value="#{item.description}" class="largText"/>
+                                </div>
                             </div>
-                            <div class="ui-g-9">
-                                <h:outputText value="#{item.description}" class="largText"/>
-                            </div>
-                        </div>
-                         
-                    </p:dataList>
+                        </p:panel>
+                    </ui:repeat>
                 </h:panelGroup>
                 <br />
                 <p:commandButton action="#{sportController.prepareCreate}" value="Add a Sport"/>
- 
+
             </h:form>
         </ui:define>
     </ui:composition>
