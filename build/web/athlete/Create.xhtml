@@ -34,12 +34,6 @@
                 </h:panelGrid>
                 <br />
                 <p:commandLink action="#{athleteController.create}" value="#{bundle.CreateAthleteSaveLink} " update="@(.athleteList)" />
-                <br />
-                <br />
-                <h:commandLink action="#{athleteController.prepareList}" value="#{bundle.CreateAthleteShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateAthleteIndexLink}"/>
             </h:form>
         </ui:define>
     </ui:composition>
