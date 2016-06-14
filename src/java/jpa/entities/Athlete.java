@@ -7,19 +7,20 @@ package jpa.entities;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
-@XmlRootElement
 public class Athlete extends Person {
 
     double weight;
     double height;
     @OneToMany(mappedBy = "athlete")
     private List<Price> prices;
-
+    
+    @Lob
+    private byte[] image;
     public Athlete() {
     }
 
@@ -58,5 +59,14 @@ public class Athlete extends Person {
     public void setHeight(Double height) {
         this.height = height;
     }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+    
 
 }

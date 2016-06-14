@@ -21,7 +21,9 @@
                     <ui:repeat value="#{athleteController.items}" var="item"  >
                         <p:layout style="min-width:400px;min-height:200px;margin: 20px">
                             <p:layoutUnit position="west" size="200" minSize="40" maxSize="200">
-
+                                <p:graphicImage value="#{athleteImages.image}">
+                                    <f:param name="athleteId" value="#{item.id}" />
+                                </p:graphicImage>
                             </p:layoutUnit>
 
                             <p:layoutUnit position="center">

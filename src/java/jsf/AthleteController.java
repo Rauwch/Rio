@@ -7,7 +7,6 @@ import jpa.session.AthleteFacade;
 
 import java.io.Serializable;
 import java.util.ResourceBundle;
-import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -19,15 +18,15 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+
 @Named("athleteController")
-@ManagedBean
 @SessionScoped
 public class AthleteController implements Serializable {
 
+
     private Athlete current;
     private DataModel items = null;
-    @EJB
-    private jpa.session.AthleteFacade ejbFacade;
+    @EJB private jpa.session.AthleteFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -45,7 +44,6 @@ public class AthleteController implements Serializable {
     private AthleteFacade getFacade() {
         return ejbFacade;
     }
-
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
@@ -57,7 +55,7 @@ public class AthleteController implements Serializable {
 
                 @Override
                 public DataModel createPageDataModel() {
-                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem() + getPageSize()}));
+                    return new ListDataModel(getFacade().findRange(new int[]{getPageFirstItem(), getPageFirstItem()+getPageSize()}));
                 }
             };
         }
@@ -70,7 +68,7 @@ public class AthleteController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Athlete) getItems().getRowData();
+        current = (Athlete)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
@@ -84,7 +82,7 @@ public class AthleteController implements Serializable {
     public String create() {
         try {
             getFacade().create(current);
-            recreateModel();
+             recreateModel();
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/resources/Bundle").getString("AthleteCreated"));
             return prepareCreate();
         } catch (Exception e) {
@@ -94,7 +92,7 @@ public class AthleteController implements Serializable {
     }
 
     public String prepareEdit() {
-        current = (Athlete) getItems().getRowData();
+        current = (Athlete)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -111,7 +109,7 @@ public class AthleteController implements Serializable {
     }
 
     public String destroy() {
-        current = (Athlete) getItems().getRowData();
+        current = (Athlete)getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -145,14 +143,14 @@ public class AthleteController implements Serializable {
         int count = getFacade().count();
         if (selectedItemIndex >= count) {
             // selected index cannot be bigger than number of items:
-            selectedItemIndex = count - 1;
+            selectedItemIndex = count-1;
             // go to previous page if last page disappeared:
             if (pagination.getPageFirstItem() >= count) {
                 pagination.previousPage();
             }
         }
         if (selectedItemIndex >= 0) {
-            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
+            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex+1}).get(0);
         }
     }
 
@@ -195,7 +193,7 @@ public class AthleteController implements Serializable {
         return ejbFacade.find(id);
     }
 
-    @FacesConverter(forClass = Athlete.class)
+    @FacesConverter(forClass=Athlete.class)
     public static class AthleteControllerConverter implements Converter {
 
         @Override
@@ -203,7 +201,7 @@ public class AthleteController implements Serializable {
             if (value == null || value.length() == 0) {
                 return null;
             }
-            AthleteController controller = (AthleteController) facesContext.getApplication().getELResolver().
+            AthleteController controller = (AthleteController)facesContext.getApplication().getELResolver().
                     getValue(facesContext.getELContext(), null, "athleteController");
             return controller.getAthlete(getKey(value));
         }
@@ -229,7 +227,7 @@ public class AthleteController implements Serializable {
                 Athlete o = (Athlete) object;
                 return getStringKey(o.getId());
             } else {
-                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Athlete.class.getName());
+                throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: "+Athlete.class.getName());
             }
         }
 

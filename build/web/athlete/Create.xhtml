@@ -31,6 +31,7 @@
                     <p:inputText id="weight" value="#{athleteController.selected.weight}" title="#{bundle.CreateAthleteTitle_weight}" />
                     <p:outputLabel value="#{bundle.CreateAthleteLabel_height}" for="height" />
                     <p:inputText id="height" value="#{athleteController.selected.height}" title="#{bundle.CreateAthleteTitle_height}" />
+                    <p:fileUpload value="#{athleteController.selected.image}" mode="simple" skinSimple="true"/>
                 </h:panelGrid>
                 <br />
                 <p:commandLink action="#{athleteController.create}" value="#{bundle.CreateAthleteSaveLink} " update="@(.athleteList)" />
