@@ -8,7 +8,7 @@
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
-            <h:outputText value="#{bundle.ListRefereeTitle}"></h:outputText>
+            <h:outputText value="Referees"></h:outputText>
         </ui:define>
         <ui:define name="body">
             <h:outputStylesheet library="css" name="Styling.css"  /> 
@@ -16,17 +16,17 @@
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
                 </h:panelGroup>
-                <h:outputText escape="false" value="#{bundle.ListRefereeEmpty}" rendered="#{refereeController.items.rowCount == 0}"/>
+                <h:outputText escape="false" value="No Referees" rendered="#{refereeController.items.rowCount == 0}"/>
                 <h:panelGroup rendered="#{refereeController.items.rowCount > 0}">              
                     <ui:repeat value="#{refereeController.items}" var="item" >
                         <p:panel style="margin: 20px">
                             <div class="ui-g">
                                 <div class="ui-g-2">
-                                    <p:outputLabel class="labels" value="#{bundle.ListRefereeTitle_name}"/>
+                                    <h:outputText class="labels" value="Name"/>
                                     <h:outputText class="largText" value="#{item.name}"/>                                   
                                 </div>
                                 <div class="ui-g-2">
-                                    <p:outputLabel class="labels" value="#{bundle.ListRefereeTitle_country}"/>
+                                    <h:outputText class="labels" value="Country"/>
                                     <h:outputText class="largText" value="#{item.country}"/>
 
                                 </div>
@@ -38,28 +38,26 @@
                             <div class="ui-g">
                                 <div class="ui-g-2">
 
-                                    <p:outputLabel class="labels" value="#{bundle.ListRefereeTitle_gender}"/>
+                                    <h:outputText class="labels" value="Gender"/>
                                     <h:outputText class="largText" value="#{item.gender}"/>
                                 </div>
                                 <div class="ui-g-2">
 
-                                    <p:outputLabel class="labels" value="#{bundle.ListRefereeTitle_age}"/>
+                                    <h:outputText class="labels" value="Age"/>
                                     <h:outputText class="largText" value="#{item.age}"/>
                                 </div>
                                 <div class="ui-g-8">     
 
-                                    <p:outputLabel value="#{bundle.ListRefereeTitle_yearOfExperience}"/>
-                                    <h:outputText value="#{item.yearOfExperience}"/>
+                                    <h:outputText class="labels" value="Years of experience"/>
+                                    <h:outputText class="largText" value="#{item.yearOfExperience}"/>
                                 </div>
                             </div>
                         </p:panel>
                     </ui:repeat>
                 </h:panelGroup>
                 <br />
-                <h:commandLink action="#{refereeController.prepareCreate}" value="#{bundle.ListRefereeCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListRefereeIndexLink}"/>
+                <h:commandLink action="#{refereeController.prepareCreate}" value="Create new referee"/>
+
             </h:form>
         </ui:define>
     </ui:composition>

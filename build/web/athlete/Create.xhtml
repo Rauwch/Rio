@@ -3,7 +3,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
     <ui:composition template="/template.xhtml">
@@ -15,7 +14,7 @@
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:form>
+            <h:form enctype="multipart/form-data" >
                 <h:panelGrid columns="2" class="center">
                     <p:outputLabel value="#{bundle.CreateAthleteLabel_id}: " for="id" />
                     <p:inputText id="id" value="#{athleteController.selected.id}" title="#{bundle.CreateAthleteTitle_id}" />
@@ -31,10 +30,10 @@
                     <p:inputText id="weight" value="#{athleteController.selected.weight}" title="#{bundle.CreateAthleteTitle_weight}" />
                     <p:outputLabel value="#{bundle.CreateAthleteLabel_height}" for="height" />
                     <p:inputText id="height" value="#{athleteController.selected.height}" title="#{bundle.CreateAthleteTitle_height}" />
-                    <p:fileUpload value="#{athleteController.selected.image}" mode="simple" skinSimple="true"/>
+                    <p:fileUpload  fileUploadListener="#{athleteController.handleFileUpload}"  />
                 </h:panelGrid>
                 <br />
-                <p:commandLink action="#{athleteController.create}" value="#{bundle.CreateAthleteSaveLink} " update="@(.athleteList)" />
+                <p:commandButton action="#{athleteController.create}"  ajax="true" value="#{bundle.CreateAthleteSaveLink} " update="@(.athleteList)" />
             </h:form>
         </ui:define>
     </ui:composition>

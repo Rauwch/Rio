@@ -62,7 +62,7 @@ public class ShoppingCartEJB {
             event.takeSeat();
         });
         cartItems.clear();
-        return "/index";
+        return "TransactionSucces";
     }
 
 }

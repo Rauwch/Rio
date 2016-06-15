@@ -18,7 +18,6 @@ import net.webservicex.Country;
 /**
  *
  * @author Anton
- * SOAP client
  */
 @WebServlet(name = "ClientServlet", urlPatterns = {"/ClientServlet"})
 public class ClientServlet extends HttpServlet {
@@ -43,20 +42,13 @@ public class ClientServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ClientServlet</title>");
+            out.println("<title>Servlet ClientServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ClientServlet at " + request.getContextPath() + "</h1>");
-
-            try {
-                out.println("Result = " + getCurrencyByCountry("United States"));
-            } catch (Exception ex) {
-                out.println("Exception: " + ex);
-            }
-
             out.println("</body>");
             out.println("</html>");
-
+            out.println(getCurrencyByCountry("Belgium"));
         }
     }
 
@@ -106,5 +98,6 @@ public class ClientServlet extends HttpServlet {
         return port.getCurrencyByCountry(countryName);
     }
     
-
+    
+    
 }

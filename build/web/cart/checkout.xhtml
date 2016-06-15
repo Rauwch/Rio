@@ -16,9 +16,10 @@
             <h:form>
                 <h:panelGrid columns="2" class="center">
                     <p:outputLabel value="email" for="email" />
-                    <p:inputText id="email" title="email" />   
+                    <p:inputText id="email" title="email" />
+                    <p:commandButton value="Check out" action="#{shoppingCart.checkout()}" />
                 </h:panelGrid>
-                <p:commandButton value="check out" action="#{shoppingCart.checkout()}" />
+
                 <br/>
             </h:form>
         </ui:define>

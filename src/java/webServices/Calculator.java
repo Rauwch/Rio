@@ -12,19 +12,19 @@ import javax.ejb.Stateless;
 
 /**
  *
- * @author Antonµ
- * SOAP web service
+ * @author Anton
  */
-@WebService(serviceName = "CalculatorWS")
+@WebService(serviceName = "Calculator")
 @Stateless()
-public class CalculatorWS {
+public class Calculator {
+
 
     /**
      * Web service operation
      */
     @WebMethod(operationName = "add")
     public int add(@WebParam(name = "i") int i, @WebParam(name = "j") int j) {
-        int k = i + j;
-        return k;
+       int k = i + j;
+       return k;
     }
 }
