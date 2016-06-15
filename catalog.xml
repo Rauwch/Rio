@@ -3,4 +3,6 @@
     <system systemId="http://localhost:8080/CalculatorWS/CalculatorWS?wsdl" uri="src/conf/xml-resources/web-service-references/CalculatorWS/wsdl/localhost_8080/CalculatorWS/CalculatorWS.wsdl"/>
     <system systemId="http://localhost:8080/CalculatorWS/CalculatorWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CalculatorWS/wsdl/localhost_8080/CalculatorWS/CalculatorWS.xsd_1.xsd"/>
     <system systemId="http://www.webservicex.net/country.asmx?WSDL" uri="src/conf/xml-resources/web-service-references/country/wsdl/www.webservicex.net/country.asmx.wsdl"/>
+    <system systemId="http://localhost:8080/Rekenmachien/Rekenmachien?wsdl" uri="src/conf/xml-resources/web-service-references/Rekenmachien/wsdl/localhost_8080/Rekenmachien/Rekenmachien.wsdl"/>
+    <system systemId="http://localhost:8080/Rekenmachien/Rekenmachien?xsd=1" uri="src/conf/xml-resources/web-service-references/Rekenmachien/wsdl/localhost_8080/Rekenmachien/Rekenmachien.xsd_1.xsd"/>
 </catalog>

@@ -16,7 +16,10 @@ import jpa.entities.Event;
  */
 @Stateless
 public class EventFacade extends AbstractFacade<Event> {
-
+    
+   
+   // TimerService timerService;
+    
     @PersistenceContext(unitName = "RioPU")
     private EntityManager em;
 
@@ -27,6 +30,20 @@ public class EventFacade extends AbstractFacade<Event> {
 
     public EventFacade() {
         super(Event.class);
+    }
+    
+    @Override
+    public void create(Event event){
+        em.persist(event);
+        /*ScheduleExpression eventDate = new ScheduleExpression().dayOfMonth(event.getDateEvent().getDay());
+        
+        timerService.createCalendarTimer(eventDate, new TimerConfig(event,true));
+        
+    }
+    
+    @Timeout
+    public void eventHappening(Event event){
+        System.out.println("Event Happening " + event.getDateEvent() + " in " + event.getPlace());*/
     }
     
 }

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.ws.WebServiceRef;
 import net.webservicex.Country;
 
+
 /**
  *
  * @author Anton
@@ -22,6 +23,7 @@ import net.webservicex.Country;
 @WebServlet(name = "ClientServlet", urlPatterns = {"/ClientServlet"})
 public class ClientServlet extends HttpServlet {
 
+  
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/www.webservicex.net/country.asmx.wsdl")
     private Country service;
 
@@ -49,6 +51,7 @@ public class ClientServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
             out.println(getCurrencyByCountry("Belgium"));
+            
         }
     }
 
@@ -98,6 +101,6 @@ public class ClientServlet extends HttpServlet {
         return port.getCurrencyByCountry(countryName);
     }
     
-    
-    
+  
+     
 }

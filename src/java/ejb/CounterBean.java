@@ -5,23 +5,28 @@
  */
 package ejb;
 
-import java.util.Date;
-import javax.ejb.Schedule;
+import javax.ejb.ConcurrencyManagement;
+import static javax.ejb.ConcurrencyManagementType.CONTAINER;
 import javax.ejb.Singleton;
+import javax.ejb.Startup;
 
 /**
  *
  * @author Anton
  */
 @Singleton
-public class TimerEJB {
-    
-    //@Schedule(second ="*", minute = "*", hour = "*")
-    public void showTime()
-    {
-        System.out.println(new Date());
-    }
+@Startup
+@ConcurrencyManagement(CONTAINER)
+public class CounterBean implements CounterBeanLocal {
+   
+    private int hits = 1;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+
+    @Override
+    public int getHits() {
+        return hits++;
+    }
+    
 }

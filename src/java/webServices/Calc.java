@@ -14,17 +14,15 @@ import javax.ejb.Stateless;
  *
  * @author Anton
  */
-@WebService(serviceName = "Calculator")
+@WebService(serviceName = "Calc")
 @Stateless()
-public class Calculator {
-
+public class Calc {
 
     /**
-     * Web service operation
+     * This is a sample web service operation
      */
-    @WebMethod(operationName = "add")
-    public int add(@WebParam(name = "i") int i, @WebParam(name = "j") int j) {
-       int k = i + j;
-       return k;
+    @WebMethod(operationName = "hello")
+    public String hello(@WebParam(name = "name") String txt) {
+        return "Hello " + txt + " !";
     }
 }

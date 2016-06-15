@@ -3,12 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/athlete/List.xhtml</file>
-            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jpa/session/PersonFacade.java</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jsf/AthleteController.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/ejb/ShoppingCartEJB.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jsf/Count.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/ejb/GrowlView.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jpa/session/EventFacade.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jpa/session/AthleteFacade.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/ejb/CounterBean.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/ejb/AthleteImages.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/index.xhtml</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/servlets/ClientServlet.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/template.xhtml</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/web/athlete/Create.xhtml</file>
             <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/jsf/EventController.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/src/java/ejb/CounterBeanLocal.java</file>
+            <file>file:/C:/Users/Anton/Documents/GitHub/Rio/nbproject/build-impl.xml</file>
         </group>
     </open-files>
 </project-private>

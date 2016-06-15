@@ -16,7 +16,7 @@
 
     <h:body>
         <ui:insert name="menu">
-            <b:navBar brand="Road to Rio!" brandHref="/Rio" inverse="true" fixed="true">
+            <b:navBar brand="Road to Rio! #{count.hitCount}" brandHref="/Rio" inverse="true" fixed="true">
                 <b:navbarLinks>
                     <b:dropMenu value="Athletes">
                         <b:navLink value="All Athletes" outcome="/athlete/List">  
